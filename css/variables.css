@@ -1,0 +1,82 @@
+/* ==========================================================
+   GLOB ACCESS
+   VARIABLES CSS - IDENTITÉ VISUELLE OFFICIELLE
+   Fichier : css/variables.css
+   ========================================================== */
+
+:root {
+
+  /* 1. COULEURS PRINCIPALES */
+  --color-primary: #142D55;
+  --color-primary-dark: #09182F;
+  --color-primary-light: #234879;
+
+  /* 2. COULEURS TECHNOLOGIQUES */
+  --color-secondary: #3B82F6;
+  --color-tech: #00B8D9;
+  --color-tech-light: #67E8F9;
+
+  /* 3. ROUGE CORPORATE */
+  --color-accent: #D22828;
+  --color-accent-hover: #B01E1E;
+
+  /* 4. COULEURS DES FONDS */
+  --color-bg-main: #FFFFFF;
+  --color-bg-alt: #F4F7FB;
+  --color-bg-dark: #09182F;
+  --color-bg-card: #FFFFFF;
+
+  /* 5. COULEURS DES TEXTES */
+  --color-text-main: #1E293B;
+  --color-text-muted: #64748B;
+  --color-text-inverse: #FFFFFF;
+
+  /* 6. COULEURS DE STATUT B2B (Indispensables pour components.css) */
+  --color-status-ok: #15803D;
+  --color-status-ok-bg: #DCFCE7;
+  --color-status-quote: #1D4ED8;
+  --color-status-quote-bg: #DBEAFE;
+
+  /* 7. BORDURES ET OMBRES */
+  --color-border: #E2E8F0;
+  --shadow-sm: 0 2px 8px rgba(15, 35, 65, 0.06);
+  --shadow-md: 0 10px 30px rgba(15, 35, 65, 0.10);
+  --shadow-lg: 0 20px 50px rgba(15, 35, 65, 0.16);
+
+  /* 8. TYPOGRAPHIE */
+  --font-heading: 'Plus Jakarta Sans', 'Manrope', Arial, sans-serif;
+  --font-body: 'Inter', Arial, sans-serif;
+
+  /* 9. TAILLES DES TEXTES */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: clamp(1.5rem, 2.5vw, 2rem);
+  --text-3xl: clamp(2rem, 4vw, 3.5rem);
+  --text-hero: clamp(2.5rem, 5vw, 4.5rem);
+
+  /* 10. ESPACEMENTS */
+  --container-max: 1240px;
+  --container-padding: 24px;
+  --section-space: clamp(60px, 8vw, 100px);
+
+  /* 11. ARRONDIS */
+  --radius-sm: 5px;
+  --radius-md: 10px;
+  --radius-lg: 18px;
+  --radius-xl: 28px;
+  --radius-full: 999px;
+
+  /* 12. TRANSITIONS */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* 13. LARGEURS RESPONSIVES */
+  --breakpoint-mobile: 576px;
+  --breakpoint-tablet: 820px;
+  --breakpoint-desktop: 1200px;
+
+}

@@ -1,0 +1,163 @@
+{
+  "entreprise": {
+    "nom": "Glob Access",
+    "slogan": "Ouvert au monde",
+    "adresse": "Hamdallaye ACI 2000, Immeuble Saïbou Sylla, Bamako, Mali",
+    "telephone": "+223 70 16 75 16",
+    "whatsapp": "22370167516",
+    "email": "info@glob-access.com",
+    "partenaire_officiel": "Lenovo"
+  },
+  "categories_produits": [
+    { "id": "tous", "label": "Tous les équipements" },
+    { "id": "ordinateurs-portables", "label": "Ordinateurs Portables" },
+    { "id": "ordinateurs-bureau", "label": "Ordinateurs de Bureau" },
+    { "id": "imprimantes", "label": "Imprimantes & Scanners" },
+    { "id": "accessoires", "label": "Accessoires & Réseau" }
+  ],
+  "produits": [
+    {
+      "id": "lenovo-thinkpad-t14",
+      "marque": "Lenovo",
+      "categorie": "ordinateurs-portables",
+      "segment": "Direction & Mobilité",
+      "nom": "Lenovo ThinkPad Série T (14 pouces)",
+      "description_courte": "La référence professionnelle ultra-robuste pour cadres, dirigeants et équipes mobiles. Sécurité matérielle ThinkShield intégrée.",
+      "specs": [
+        "Processeur Intel Core / AMD Ryzen Pro (selon configuration)",
+        "Mémoire 16 Go RAM extensible • Stockage SSD NVMe rapide",
+        "Châssis testé selon normes militaires MIL-STD-810H",
+        "Garantie constructeur officielle via Glob Access"
+      ],
+      "statut": "Disponible sur commande",
+      "image": "assets/images/produits/thinkpad-t14.webp"
+    },
+    {
+      "id": "lenovo-thinkbook-14-15",
+      "marque": "Lenovo",
+      "categorie": "ordinateurs-portables",
+      "segment": "PME & Bureautique avancée",
+      "nom": "Lenovo ThinkBook 14 / 15",
+      "description_courte": "Allie élégance aluminium et performances professionnelles pour équiper efficacement les collaborateurs d'entreprise et ONG.",
+      "specs": [
+        "Écran Full HD antireflet 14 ou 15,6 pouces",
+        "Connectivité complète (USB-C, HDMI, RJ45 Ethernet)",
+        "Lecteur d'empreintes digitales intégré au bouton d'alimentation",
+        "Configurations sur mesure selon le cahier des charges"
+      ],
+      "statut": "Disponible sur commande",
+      "image": "assets/images/produits/thinkbook-14.webp"
+    },
+    {
+      "id": "lenovo-thinkcentre-neo",
+      "marque": "Lenovo",
+      "categorie": "ordinateurs-bureau",
+      "segment": "Postes fixes & Administration",
+      "nom": "Lenovo ThinkCentre Série M / Neo",
+      "description_courte": "Unité centrale professionnelle compacte, silencieuse et conçue pour fonctionner en continu dans les environnements exigeants.",
+      "specs": [
+        "Format Tour ou Compact (SFF) gain de place",
+        "Gestion thermique optimisée pour les bureaux à Bamako",
+        "Évolutivité mémoire et stockage facilitée",
+        "Compatible écrans professionnels ThinkVision"
+      ],
+      "statut": "Sur devis entreprise",
+      "image": "assets/images/produits/thinkcentre.webp"
+    },
+    {
+      "id": "lenovo-thinkpad-t14",
+      "marque": "Lenovo",
+      "categorie": "ordinateurs-portables",
+      "segment": "Direction & Mobilité",
+      "nom": "Lenovo ThinkPad Série T (14 pouces)",
+      "description_courte": "La référence professionnelle ultra-robuste pour cadres, dirigeants et équipes mobiles.",
+      "specs": [
+        "Processeur Intel Core / AMD Ryzen Pro",
+        "Mémoire 16 Go RAM • Stockage SSD NVMe",
+        "Garantie constructeur officielle via Glob Access"
+      ],
+      "statut": "Disponible sur commande",
+      "image": "assets/images/produits/thinkpad-t14.webp"
+    },
+    {
+      "id": "lenovo-thinkcentre-neo-50s",
+      "marque": "Lenovo",
+      "categorie": "ordinateurs-portables",
+      "segment": "Poste de travail fixe",
+      "nom": "Lenovo ThinkCentre Neo 50s (Format compact)",
+      "description_courte": "Unité centrale professionnelle silencieuse et évolutive pour les bureaux administratifs et banques.",
+      "specs": [
+        "Processeur Intel Core i5 / i7 dernière génération",
+        "Connectivité complète (HDMI, DisplayPort, USB-C, Ethernet)",
+        "Livré avec clavier et souris filaires Lenovo",
+        "Option écran Lenovo ThinkVision 22 ou 24 pouces"
+      ],
+      "statut": "Disponible sur commande",
+      "image": "assets/images/produits/thinkcentre-neo-50s.webp"
+    },
+    {
+      "id": "imprimante-laser-pro",
+      "marque": "Multi-marques",
+      "categorie": "imprimantes",
+      "segment": "Impression & Numérisation",
+      "nom": "Imprimante Multifonction Laser Réseau",
+      "description_courte": "Solution d'impression rapide recto-verso pour groupes de travail, services administratifs et comptables.",
+      "specs": [
+        "Impression, copie et numérisation haute vitesse",
+        "Connexion réseau Ethernet et Wi-Fi sécurisée",
+        "Consommables haute capacité disponibles",
+        "Installation et paramétrage sur poste inclus sur demande"
+      ],
+      "statut": "Sur devis entreprise",
+      "image": "assets/images/produits/imprimante-pro.webp"
+    },
+    {
+      "id": "accessoires-station-accueil",
+      "marque": "Lenovo",
+      "categorie": "accessoires",
+      "segment": "Ergonomie & Productivité",
+      "nom": "Station d'accueil USB-C & Accessoires Pro",
+      "description_courte": "Transformez chaque ordinateur portable en poste de travail complet avec écrans externes, clavier, souris et sécurité physique.",
+      "specs": [
+        "Station d'accueil Lenovo ThinkPad Universal USB-C Dock",
+        "Sacs à dos professionnels renforcés & câbles de sécurité",
+        "Onduleurs de protection électrique adaptés au réseau local",
+        "Pièces et accessoires d'origine certifiés"
+      ],
+      "statut": "Disponible sur commande",
+      "image": "assets/images/produits/dock-accessoires.webp"
+    }
+  ],
+  "services": [
+    {
+      "id": "deploiement-parc",
+      "titre": "Fourniture & Déploiement de Parcs Informatiques",
+      "description": "Audit de vos besoins, conseil sur les configurations Lenovo adaptées, préparation des postes (système, logiciels métiers) et livraison clé en main dans vos locaux.",
+      "points_cles": [
+        "Matériel neuf authentique et traçable",
+        "Configuration avant livraison (prêt à l'emploi)",
+        "Accompagnement des appels d'offres entreprises et ONG"
+      ]
+    },
+    {
+      "id": "maintenance-sav",
+      "titre": "Maintenance Préventive & Curative (SAV Local)",
+      "description": "Notre département technique à Bamako assure la continuité de votre activité grâce à des interventions rapides et des contrats de maintenance sur mesure.",
+      "points_cles": [
+        "Diagnostic matériel et réparation en atelier",
+        "Contrats de maintenance annuels pour PME et institutions",
+        "Prise en charge des garanties et pièces d'origine"
+      ]
+    },
+    {
+      "id": "reseaux-securite",
+      "titre": "Infrastructure Réseau, Sécurité & Sauvegarde",
+      "description": "Conception et sécurisation de votre réseau d'entreprise (câblage, Wi-Fi professionnel, serveurs, sauvegarde automatisée des données critiques).",
+      "points_cles": [
+        "Architecture réseau filaire et sans fil haute disponibilité",
+        "Protection des postes et des données sensibles",
+        "Solutions d'alimentation de secours (onduleurs)"
+      ]
+    }
+  ]
+}
