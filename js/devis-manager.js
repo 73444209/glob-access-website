@@ -168,31 +168,35 @@ function initQuotePage() {
     }]);
     window._hsq.push(["trackPageView"]);
 
-    // 2. Envoi parallèle vers l'endpoint public HubSpot (mode no-cors pour éviter tout blocage navigateur)
+    // 2. Envoi multipart/form-data exact attendu par l'endpoint HubSpot
     try {
-      const hsBody = new URLSearchParams();
-      hsBody.append("company", data.company || "");
-      hsBody.append("firstname", data.firstname || "");
-      hsBody.append("lastname", data.lastname || "");
-      hsBody.append("email", data.email || "");
-      hsBody.append("phone", data.phone || "");
-      hsBody.append("jobtitle", data.jobtitle || "");
-      hsBody.append("message", fullMessage);
-      hsBody.append("hs_context", JSON.stringify({
-        pageUrl: window.location.href,
-        pageName: document.title
-      }));
+      const multipartData = new FormData();
+      multipartData.append("company", data.company || "");
+      multipartData.append("firstname", data.firstname || "");
+      multipartData.append("lastname", data.lastname || "");
+      multipartData.append("email", data.email || "");
+      multipartData.append("phone", data.phone || "");
+      multipartData.append("jobtitle", data.jobtitle || "");
+      multipartData.append("message", fullMessage);
+      multipartData.append(
+        "hs_context",
+        JSON.stringify({
+          hutk: document.cookie.replace(/(?:(?:^|.*;\s*)hubspotutk\s*\=\s*([^;]*).*$)|^.*$/, "$1") || undefined,
+          pageUrl: window.location.href,
+          pageName: document.title
+        })
+      );
 
       await fetch(
         "https://forms-eu1.hsforms.com/submissions/v3/public/submit/formsnext/multipart/149621811/f2425af3-f47d-4b5e-a1df-5fa1c608918b",
         {
           method: "POST",
           mode: "no-cors",
-          body: hsBody
+          body: multipartData
         }
       );
     } catch (err) {
-      console.warn("Transmission secondaire :", err);
+      console.warn("Erreur transmission HubSpot :", err);
     }
 
     showFeedback(
