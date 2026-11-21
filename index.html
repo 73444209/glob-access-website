@@ -81,7 +81,7 @@
         </div>
       </a>
 
-      <!-- Navigation reliée aux 7 pages du site -->
+      <!-- Navigation reliée aux pages du site -->
       <nav class="main-nav" id="main-navigation" aria-label="Navigation principale">
         <ul>
           <li><a href="index.html" class="active">Accueil</a></li>
@@ -182,15 +182,18 @@
     <!-- PARTENARIAT LENOVO -->
     <section class="partner-section">
       <div class="container partner-inner">
-        <div>
-          <p>Un partenariat technologique reconnu</p>
+        <p>Un partenariat technologique reconnu</p>
+
+        <div class="partner-logo-box">
+          <img
+            src="assets/images/logo/lenovo-logo.png"
+            alt="Logo officiel Lenovo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';"
+          >
+          <span class="lenovo-official-badge" style="display: none;">Lenovo</span>
         </div>
-        <div class="partner-logo">
-          LENOVO
-        </div>
-        <div>
-          <p>Partenaire certifié Lenovo au Mali</p>
-        </div>
+
+        <p>Partenaire certifié Lenovo au Mali</p>
       </div>
     </section>
 
@@ -292,7 +295,7 @@
             <a href="devis.html" class="btn btn-primary">
               Demander un devis →
             </a>
-            <a href="a-propos.html" class="btn btn-outline">
+            <a href="a-propos.html" class="btn btn-outline-light">
               Découvrir l'entreprise
             </a>
           </div>
@@ -300,7 +303,8 @@
 
       </div>
     </section>
-<!-- SECTION ILS NOUS FONT CONFIANCE -->
+
+    <!-- SECTION ILS NOUS FONT CONFIANCE -->
     <section class="clients-trust-section" id="confiance">
       <div class="container">
 
@@ -315,9 +319,9 @@
         <div class="clients-logos-grid">
           <!-- Client 1 -->
           <div class="client-logo-card">
-            <img src="assets/images/clients/client-1.png" alt="Banque Atlantic" loading="lazy"
+            <img src="assets/images/clients/client-1.png" alt="Banque Atlantique" loading="lazy"
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-            <span class="client-logo-fallback" style="display: none;">ENTREPRISE PARTENAIRE</span>
+            <span class="client-logo-fallback" style="display: none;">BANQUE ATLANTIQUE</span>
           </div>
 
           <!-- Client 2 -->
@@ -357,6 +361,7 @@
 
       </div>
     </section>
+
     <!-- SECTION APPEL À L'ACTION -->
     <section class="cta-section">
       <div class="container cta-content">
@@ -480,3 +485,9 @@
     aria-label="Contacter GLOB ACCESS sur WhatsApp"
   >
     💬 WhatsApp
+  </a>
+
+  <script src="js/main.js"></script>
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/149621611.js"></script>
+</body>
+</html>

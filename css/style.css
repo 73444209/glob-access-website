@@ -1017,4 +1017,34 @@ p {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px;
   }
+}/* =========================================================
+   LOGO OFFICIEL LENOVO DANS LA BANDE PARTENAIRE
+   ========================================================= */
+.partner-logo-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 18px;
+}
+
+.partner-logo-box img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Badge rouge officiel Lenovo (s'affiche automatiquement si le fichier image est absent) */
+.lenovo-official-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 22px;
+  background-color: #E2231A;
+  color: #FFFFFF;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  border-radius: 3px;
+  line-height: 1;
 }
