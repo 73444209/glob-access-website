@@ -947,4 +947,74 @@ p {
     transform: none;
     transition: none;
   }
+}/* =========================================================
+   14. SECTION "ILS NOUS FONT CONFIANCE" (LOGOS CLIENTS)
+   ========================================================= */
+.clients-trust-section {
+  padding: 65px 0;
+  background: var(--color-light);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.clients-logos-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px;
+  align-items: center;
+}
+
+.client-logo-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 92px;
+  padding: 16px 22px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.client-logo-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-tech-blue);
+  box-shadow: 0 12px 28px rgba(20, 45, 85, 0.08);
+}
+
+.client-logo-card img {
+  max-height: 48px;
+  max-width: 145px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.75);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.client-logo-card:hover img {
+  filter: grayscale(0%) opacity(1);
+  transform: scale(1.04);
+}
+
+.client-logo-fallback {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.92rem;
+  color: var(--color-navy);
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 960px) {
+  .clients-logos-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .clients-logos-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
 }
