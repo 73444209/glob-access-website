@@ -1,6 +1,6 @@
 /* ==========================================================================
    DEVIS-MANAGER.JS
-   Capture native par le script de suivi HubSpot (Non-HubSpot Forms)
+   Gestion du panier et envoi automatique vers HubSpot (Compte 149621611)
    ========================================================================== */
 
 "use strict";
@@ -131,57 +131,74 @@ function initQuotePage() {
   if (!form || form.dataset.bound === "true") return;
   form.dataset.bound = "true";
 
-  // Création d'une cible iframe invisible sur le même domaine (évite l'erreur 405 et laisse HubSpot écouter le submit natif)
-  let sinkFrame = document.getElementById("hs-capture-sink");
-  if (!sinkFrame) {
-    sinkFrame = document.createElement("iframe");
-    sinkFrame.id = "hs-capture-sink";
-    sinkFrame.name = "hs-capture-sink";
-    sinkFrame.style.display = "none";
-    document.body.appendChild(sinkFrame);
-  }
+  form.addEventListener("submit", async event => {
+    event.preventDefault();
+    event.stopPropagation();
 
-  // On pointe le formulaire vers une page statique existante en GET dans l'iframe cachée
-  form.method = "GET";
-  form.action = "robots.txt";
-  form.target = "hs-capture-sink";
-
-  form.addEventListener("submit", event => {
     const honeypot = document.getElementById("website_url");
-    if (honeypot && honeypot.value.trim() !== "") {
-      event.preventDefault();
-      return;
+    if (honeypot && honeypot.value.trim() !== "") return;
+    if (!form.reportValidity()) return;
+
+    const submitButton = form.querySelector('[type="submit"]');
+    const originalText = submitButton ? submitButton.textContent : "Envoyer ma demande de devis";
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Envoi en cours...";
     }
 
-    if (!form.reportValidity()) {
-      event.preventDefault();
-      return;
-    }
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
 
-    // Fusionne la liste des produits du panier dans le champ message pour qu'elle apparaisse dans HubSpot
     const quoteList = getQuoteList();
-    const messageField = document.getElementById("message");
-    if (quoteList.length > 0 && messageField && !messageField.value.includes("ÉQUIPEMENTS SÉLECTIONNÉS")) {
-      const itemsText = quoteList
-        .map(i => `- ${i.nom} (${i.marque || "Lenovo"}) : Quantité ${Math.max(1, Number(i.quantity) || 1)}`)
-        .join("\n");
-      messageField.value = `ÉQUIPEMENTS SÉLECTIONNÉS :\n${itemsText}\n\nPRÉCISIONS CLIENT :\n${messageField.value}`;
+    const itemsSummary = quoteList.length
+      ? quoteList.map(i => `- ${i.nom} (${i.marque || "Lenovo"}) x${Math.max(1, Number(i.quantity) || 1)}`).join("\n")
+      : "Demande libre (sans produit pré-sélectionné)";
+
+    const fullMessage = `ÉQUIPEMENTS :\n${itemsSummary}\n\nBESOIN :\n${data.message || ""}`;
+
+    try {
+      const multipartData = new FormData();
+      multipartData.append("company", data.company || "");
+      multipartData.append("firstname", data.firstname || "");
+      multipartData.append("lastname", data.lastname || "");
+      multipartData.append("email", data.email || "");
+      multipartData.append("phone", data.phone || "");
+      multipartData.append("jobtitle", data.jobtitle || "");
+      multipartData.append("message", fullMessage);
+      multipartData.append(
+        "hs_context",
+        JSON.stringify({
+          hutk: document.cookie.replace(/(?:(?:^|.*;\s*)hubspotutk\s*\=\s*([^;]*).*$)|^.*$/, "$1") || undefined,
+          pageUrl: window.location.href,
+          pageName: document.title
+        })
+      );
+
+      await fetch(
+        "https://forms-eu1.hsforms.com/submissions/v3/public/submit/formsnext/multipart/149621611/f2425af3-f47d-4b5e-a1df-5fa1c608918b",
+        {
+          method: "POST",
+          mode: "no-cors",
+          body: multipartData
+        }
+      );
+    } catch (err) {
+      console.warn("Erreur transmission HubSpot :", err);
     }
 
-    const firstName = document.getElementById("firstname")?.value || "";
-    const companyName = document.getElementById("company")?.value || "";
+    showFeedback(
+      `✔️ Merci ${data.firstname}. Votre demande de devis pour ${data.company} a bien été transmise à Glob Access. Notre équipe commerciale à Bamako vous recontactera sous 24h ouvrées.`,
+      "success"
+    );
 
-    // Note : on NE fait PAS event.preventDefault() afin que le script HubSpot (hs-scripts.com)
-    // détecte l'événement submit natif du navigateur et aspire tous les champs automatiquement !
-    setTimeout(() => {
-      showFeedback(
-        `✔️ Merci ${firstName}. Votre demande de devis pour ${companyName} a bien été transmise à Glob Access. Notre équipe commerciale à Bamako vous recontactera sous 24h ouvrées.`,
-        "success"
-      );
-      localStorage.removeItem(QUOTE_STORAGE_KEY);
-      form.reset();
-      renderQuoteItems();
-    }, 600);
+    localStorage.removeItem(QUOTE_STORAGE_KEY);
+    form.reset();
+    renderQuoteItems();
+
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.textContent = originalText;
+    }
   });
 }
 
